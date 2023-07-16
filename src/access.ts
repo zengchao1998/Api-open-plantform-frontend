@@ -1,9 +1,11 @@
 /**
  * @see https://umijs.org/zh-CN/plugins/plugin-access
  * */
-export default function access(initialState: { currentUser?: API.CurrentUser } | undefined) {
+export default function access(initialState: { currentUser?: API.UserVO } | undefined) {
   const { currentUser } = initialState ?? {};
   return {
-    canAdmin: currentUser && currentUser.access === 'admin',
+    // 访问权限设置
+    canUser: currentUser,
+    canAdmin: currentUser && currentUser.userRole === 'admin',
   };
 }
