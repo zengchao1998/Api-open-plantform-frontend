@@ -12,6 +12,19 @@
  */
 export default [
   {
+    path: '/',
+    name: '接口',
+    icon: 'smile',
+    component: './Index',
+  },
+  {
+    path: '/interface_info/:id',
+    name: '接口',
+    icon: 'file',
+    component: './InterfaceInfo',
+    hideInMenu: true,
+  },
+  {
     path: '/user',
     layout: false,
     routes: [
@@ -23,37 +36,18 @@ export default [
     ],
   },
   {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
-  {
     path: '/admin',
     name: 'admin',
     icon: 'crown',
     access: 'canAdmin',
     routes: [
       {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
         name: 'sub-page',
-        component: './Admin',
+        icon: 'table',
+        path: '/admin/interface_info',
+        component: './Admin/InterfaceInfo',
       },
     ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
   },
   {
     path: '*',
