@@ -1,5 +1,4 @@
-﻿import type { RequestOptions } from '@@/plugin-request/request';
-import type { RequestConfig } from '@umijs/max';
+﻿import type { RequestConfig } from '@umijs/max';
 
 // 错误处理方案： 错误类型
 enum ErrorShowType {
@@ -19,15 +18,22 @@ interface ResponseStructure {
 }
 
 /**
- * @name 请求处理
+ * @name 请求统一处理
  * @doc https://umijs.org/docs/max/request#配置
  */
 export const requestConfig: RequestConfig = {
   // 请求拦截器
   requestInterceptors: [
-    (config: RequestOptions) => {
-      // 拦截请求配置，进行个性化处理。
-      const url = config?.url?.concat('?token = 123');
+    (config: any) => {
+      // 拦截请求配置，进行个性化处理
+      let url = config.url;
+      // 检查当前环境是否为"prod"（生产环境）
+      if (process.env.NODE_ENV === 'production') {
+        // 将基础URL替换为生产环境域名
+        const baseUrl = 'http://47.120.9.159:8090';
+        const path = url.startsWith('/') ? url.slice(1) : url;
+        url = `${baseUrl}/${path}`;
+      }
       return { ...config, url };
     },
   ],

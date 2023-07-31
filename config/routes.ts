@@ -13,13 +13,13 @@
 export default [
   {
     path: '/',
-    name: '接口',
+    name: 'interface',
     icon: 'smile',
     component: './Index',
   },
   {
     path: '/interface_info/:id',
-    name: '接口',
+    name: 'interface-info',
     icon: 'file',
     component: './InterfaceInfo',
     hideInMenu: true,
@@ -32,6 +32,11 @@ export default [
         name: 'login',
         path: '/user/login',
         component: './User/Login',
+      },
+      {
+        name: 'register',
+        path: '/user/register',
+        component: './User/Register',
       },
     ],
   },
@@ -46,6 +51,12 @@ export default [
         icon: 'table',
         path: '/admin/interface_info',
         component: './Admin/InterfaceInfo',
+      },
+      {
+        name: 'analysis-page',
+        icon: 'table',
+        path: '/admin/interface_analysis',
+        component: './Admin/InterfaceAnalysis',
       },
     ],
   },

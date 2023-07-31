@@ -204,6 +204,32 @@ const TableList: React.FC = () => {
       },
     },
     {
+      title: <FormattedMessage id="pages.searchTable.interfaceInfo.host" defaultMessage="HOST" />,
+      dataIndex: 'host',
+      valueType: 'text',
+      formItemProps: {
+        rules: [
+          {
+            required: true,
+            message: '请输入请求地址host',
+          },
+        ],
+      },
+    },
+    {
+      title: <FormattedMessage id="pages.searchTable.interfaceInfo.url" defaultMessage="URL" />,
+      dataIndex: 'path',
+      valueType: 'text',
+      formItemProps: {
+        rules: [
+          {
+            required: true,
+            message: '请输入请求地址url',
+          },
+        ],
+      },
+    },
+    {
       title: (
         <FormattedMessage
           id="pages.searchTable.interfaceInfo.method"
@@ -228,19 +254,6 @@ const TableList: React.FC = () => {
       //     id: 'pages.searchTable.tenThousand',
       //     defaultMessage: ' 万 ',
       //   })}`,
-    },
-    {
-      title: <FormattedMessage id="pages.searchTable.interfaceInfo.url" defaultMessage="URL" />,
-      dataIndex: 'url',
-      valueType: 'text',
-      formItemProps: {
-        rules: [
-          {
-            required: true,
-            message: '请输入请求地址信息',
-          },
-        ],
-      },
     },
     {
       title: (
